@@ -1,6 +1,7 @@
 package com.getcharmsmart.qxgps;
 
 
+import android.os.HandlerThread;
 import android.util.Log;
 
 /**
@@ -72,7 +73,5 @@ public class QxGPSManager extends QxGPS{
         String str = ioctll(cmd,flag);
         return str;
 }
-
-
 
 }

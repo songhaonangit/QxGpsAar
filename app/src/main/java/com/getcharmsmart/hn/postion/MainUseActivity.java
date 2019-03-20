@@ -50,7 +50,7 @@ public class MainUseActivity extends AppCompatActivity {
         bt_open = (Button)findViewById(R.id.bt_open);
         bt_close = (Button)findViewById(R.id.bt_close);
         bt_open.setVisibility(View.INVISIBLE);
-        bt_close.setVisibility(View.INVISIBLE);
+        //bt_close.setVisibility(View.INVISIBLE);
 
 
         bt_gga = (Button)findViewById(R.id.bt_gga);
@@ -60,6 +60,16 @@ public class MainUseActivity extends AppCompatActivity {
 
         init();
         qxGPSManager = new QxGPSManager();
+
+        bt_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                qxGPSManager.closeGps();
+                finish();
+            }
+        });
+
+
 
         boolean status = qxGPSManager.setmOnGpsDataListener(new OnGpsDataListener() {
             @Override
@@ -162,9 +172,18 @@ public class MainUseActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStop() {
+
+        super.onStop();
+        qxGPSManager.closeGps();
+        finish();
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
-        qxGPSManager.closeGps();
+        Log.d(TAG,"---onDestroy()---");
+      //  qxGPSManager.closeGps();
     }
 
 

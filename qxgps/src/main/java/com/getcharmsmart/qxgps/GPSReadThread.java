@@ -1,5 +1,6 @@
 package com.getcharmsmart.qxgps;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 /**
@@ -13,40 +14,41 @@ public abstract class GPSReadThread extends Thread {
 
     private static final String TAG = GPSReadThread.class.getSimpleName();
     QxGPSManager qxGPSManager;
-    private String mStr;
+    private String mStr= "";
     private int cmd;
+    private boolean isStop = false;
+    int size = 0;
     public GPSReadThread(String str) {
         mStr = str;
     }
     public GPSReadThread(int mCmd,String str) {
         cmd = mCmd;
         mStr = str;
+        qxGPSManager = new QxGPSManager();
     }
     @Override
     public void run() {
         super.run();
-        qxGPSManager = new QxGPSManager();
+
         while (!isInterrupted()) {
+            if(isStop){
+                return;
+            }
 
-
-                try {
-                    sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
+//                try {
+//                    sleep(1000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
 
             mStr = qxGPSManager.getData(cmd,"");
 
-                Log.i(TAG, "run: ");
-                int size = mStr.length();
+            Log.d(TAG, "run: ");
+            if(TextUtils.isEmpty(mStr)){
+                continue;
+            }
 
-                if (-1 == size || 0 >= size) {
-                    return;
-                }
-
-               Log.i(TAG, "run: readBytes length= " + size);
-              onDataReceived(mStr);
+            onDataReceived(mStr);
 
 
         }
@@ -64,10 +66,9 @@ public abstract class GPSReadThread extends Thread {
         interrupt();
 
         if (null != mStr) {
-
                 mStr = null;
-
         }
+        isStop= true;
 
     }
 }
