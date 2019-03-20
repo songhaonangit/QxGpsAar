@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.getcharmsmart.hn.postion.MainActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/posting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="17dp"
+        android:gravity="center">
+
+
+        <Button
+            android:id="@+id/bt_open"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="打开" />
+
+        <Button
+            android:id="@+id/bt_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bt_open"
+            android:text="关闭" />
+
+        <Button
+            android:id="@+id/bt_gga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/bt_open"
+            android:text="GGA" />
+
+        <Button
+            android:id="@+id/bt_nmea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bt_gga"
+            android:layout_toRightOf="@+id/bt_close"
+            android:text="MMEA" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_below="@+id/bt_nmea"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="NotSibling"
+        android:id="@+id/scrollView2">
+
+        <TextView
+            android:id="@+id/tv_result"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fadeScrollbars="false"
+            android:gravity="left"
+            android:scrollbars="vertical"
+            android:singleLine="false"
+
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="10sp" />
+    </ScrollView>
+
+
+</RelativeLayout>

@@ -1,0 +1,38 @@
+
+{
+	"buildFiles" : [ "/root/Downloads/C3705_qx-master/app/CMakeLists.txt" ],
+	"cleanCommands" : 
+	[
+		"/main/tools/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /root/Downloads/C3705_qx-master/app/.externalNativeBuild/cmake/release/x86 --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"qx-native-lib-Release-x86" : 
+		{
+			"abi" : "x86",
+			"artifactName" : "qx-native-lib",
+			"buildCommand" : "/main/tools/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /root/Downloads/C3705_qx-master/app/.externalNativeBuild/cmake/release/x86 --target qx-native-lib",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=i686-none-linux-android16 --gcc-toolchain=/main/tools/Android/Sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/linux-x86_64 --sysroot=/main/tools/Android/Sdk/ndk-bundle/sysroot  -Dqx_native_lib_EXPORTS -isystem /main/tools/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/include -isystem /main/tools/Android/Sdk/ndk-bundle/sources/android/support/include -isystem /main/tools/Android/Sdk/ndk-bundle/sources/cxx-stl/llvm-libc++abi/include  -isystem /main/tools/Android/Sdk/ndk-bundle/sysroot/usr/include/i686-linux-android -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -Wa,--noexecstack -Wformat -Werror=format-security -std=c++11  -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "/root/Downloads/C3705_qx-master/app/src/main/cpp/qx-native-lib.cpp",
+					"workingDirectory" : "/root/Downloads/C3705_qx-master/app/.externalNativeBuild/cmake/release/x86"
+				}
+			],
+			"output" : "/root/Downloads/C3705_qx-master/app/build/intermediates/cmake/release/obj/x86/libqx-native-lib.so",
+			"toolchain" : "1676155986907444241"
+		}
+	},
+	"toolchains" : 
+	{
+		"1676155986907444241" : 
+		{
+			"cCompilerExecutable" : "/main/tools/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/main/tools/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++"
+		}
+	}
+}
